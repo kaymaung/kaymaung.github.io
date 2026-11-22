@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kay Maung · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap">
+<style>
+:root{--blue:#1D3BEA;--fill:#E3E7FF;--ink:#16181D;--sub:#4A4F5C;--line:#E1E3EA;--bg:#F6F6F8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Red Hat Display',sans-serif;color:var(--ink);background-color:var(--bg);background-image:radial-gradient(#C9CBD3 1.1px,transparent 1.1px);background-size:22px 22px;line-height:1.6}
+a{color:var(--blue)}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+nav{position:sticky;top:0;z-index:20;background:rgba(246,246,248,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+nav .name{font-weight:700}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:15px}
+nav ul a{color:var(--ink);text-decoration:none;font-weight:500}
+nav ul a:hover{color:var(--blue)}
+.sel{position:relative;display:inline-block;padding:0 .3em;background:var(--fill);border:2px solid var(--blue);color:var(--blue);font-style:italic;line-height:1.12}
+.sel::before,.sel::after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--blue)}
+.sel::before{top:-7px;right:-7px}.sel::after{bottom:-7px;left:-7px}
+.kicker{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700;margin:0 0 14px}
+.label{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--sub);font-weight:700;margin:0 0 12px}
+section{padding:96px 0}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.01em}
+.hero{padding:90px 0 70px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(52px,8vw,92px);line-height:1.05}
+.hero .role{font-size:26px;font-weight:600;margin:22px 0 18px}
+.hero .meta{color:var(--sub);margin:0 0 28px}
+.btn{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:999px}
+.btn.ghost{background:transparent;color:var(--blue);border:2px solid var(--blue);margin-left:10px}
+.frame{position:relative;border:2px solid var(--blue);background:#fff}
+.frame::before,.frame::after,.frame .h1,.frame .h2{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--blue);z-index:2}
+.frame::before{top:-7px;left:-7px}.frame::after{top:-7px;right:-7px}.frame .h1{bottom:-7px;left:-7px}.frame .h2{bottom:-7px;right:-7px}
+.frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+.ph{display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;background:repeating-linear-gradient(45deg,#EEF0FA,#EEF0FA 10px,#F6F7FC 10px,#F6F7FC 20px);color:var(--sub);font-weight:600;font-size:14px;height:100%}
+.about{display:grid;grid-template-columns:1fr 1.6fr;gap:48px}
+.about p{font-size:18px;margin:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;transition:transform .2s,border-color .2s}
+.stat:hover{transform:translateY(-3px);border-color:var(--blue)}
+.stat b{display:block;font-size:30px;color:var(--blue);line-height:1.1;margin-bottom:6px}
+.stat span{font-size:14.5px;color:var(--sub)}
+.stat[data-how]::after{content:attr(data-how);position:absolute;left:12px;right:12px;bottom:calc(100% + 8px);background:var(--ink);color:#fff;font-size:12.5px;line-height:1.45;padding:10px 12px;border-radius:10px;opacity:0;pointer-events:none;transform:translateY(4px);transition:.2s}
+.stat[data-how]:hover::after{opacity:1;transform:none}
+.hint{font-size:13px;color:var(--sub);margin:10px 0 0}
+.works{display:flex;flex-direction:column;gap:0}
+.work{display:grid;grid-template-columns:70px 1fr 260px;gap:28px;align-items:center;padding:28px 0;border-top:1px solid #D6D8E0;text-decoration:none;color:inherit}
+.work:last-child{border-bottom:1px solid #D6D8E0}
+.work .num{font-size:15px;font-weight:700;color:var(--blue)}
+.work h3{font-size:30px;line-height:1.15;transition:color .2s}
+.work p{margin:8px 0 12px;color:var(--sub);font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12.5px;font-weight:600;border:1.5px solid var(--blue);color:var(--blue);padding:3px 10px;border-radius:999px;background:#fff}
+.work .thumb{height:170px;transition:transform .3s}
+.work:hover h3{color:var(--blue)}
+.work:hover .thumb{transform:scale(1.03)}
+.case{border-top:1px solid #D6D8E0}
+.case h2{font-size:clamp(36px,5vw,54px);line-height:1.12}
+.lead{display:flex;align-items:center;gap:22px;background:var(--blue);color:#fff;border-radius:16px;padding:26px 30px;margin:34px 0 40px}
+.lead b{font-size:52px;line-height:1;white-space:nowrap}
+.lead span{font-size:18px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.two.wide{grid-template-columns:1.3fr 1fr}
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:12px}
+.steps li{counter-increment:s;display:flex;gap:14px;font-size:16.5px}
+.steps li::before{content:"";flex:0 0 8px;height:8px;margin-top:9px;background:var(--blue);border-radius:2px}
+.block{margin-bottom:40px}
+.cap{font-size:13px;color:var(--sub);margin:10px 0 0}
+.zoom{cursor:zoom-in;transition:transform .25s}
+.zoom:hover{transform:scale(1.02)}
+.ba{position:relative;aspect-ratio:900/1197;overflow:hidden;user-select:none;max-width:460px}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.ba .after{clip-path:inset(0 0 0 50%)}
+.ba .bar{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--blue);transform:translateX(-50%);pointer-events:none}
+.ba .bar::after{content:"\2194";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .tl,.ba .tr{position:absolute;top:12px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;z-index:3}
+.ba .tl{left:12px;background:#fff;color:var(--sub)}.ba .tr{right:12px;background:var(--blue);color:#fff}
+.switch{display:flex;gap:8px;margin-bottom:16px}
+.switch button{font:inherit;font-size:14px;font-weight:600;border:1.5px solid var(--blue);background:#fff;color:var(--blue);padding:6px 14px;border-radius:999px;cursor:pointer}
+.switch button.on{background:var(--blue);color:#fff}
+.flow{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap}
+.node{flex:1;min-width:120px;position:relative;background:#fff;border:2px solid var(--blue);border-radius:12px;padding:14px;text-align:center;font-weight:600;cursor:default;transition:.2s}
+.node.me{background:var(--blue);color:#fff}
+.node small{display:block;font-weight:500;font-size:13px;color:var(--sub);max-height:0;overflow:hidden;transition:max-height .3s,margin .3s}
+.node.me small{color:#DDE2FF}
+.node:hover small{max-height:90px;margin-top:6px}
+.arrow{align-self:center;color:var(--blue);font-weight:700;font-size:20px}
+.lb{position:fixed;inset:0;background:rgba(10,12,20,.85);display:none;align-items:center;justify-content:center;z-index:50;cursor:zoom-out;padding:30px}
+.lb img{max-width:100%;max-height:100%;border:3px solid #fff}
+.lb.on{display:flex}
+.vb{position:fixed;inset:0;background:rgba(10,12,20,.9);display:none;align-items:center;justify-content:center;z-index:60;padding:30px}.vb.on{display:flex}.vb .in{position:relative;width:min(1100px,100%);aspect-ratio:16/9}.vb iframe{width:100%;height:100%;border:0;border-radius:10px}.vb .x{position:absolute;top:-44px;right:0;background:none;border:0;color:#fff;font-size:32px;cursor:pointer}
+footer{padding:90px 0 60px;border-top:1px solid #D6D8E0}
+footer h2{font-size:clamp(38px,6vw,64px);line-height:1.1;margin-bottom:26px}
+.note{font-size:13px;color:#7A7F8C;margin-top:40px}
+@media (max-width:820px){.block [style*="1.1fr 1fr 1fr"]{grid-template-columns:1fr 1fr !important}.stats{grid-template-columns:1fr !important}.hero,.about,.two,.two.wide{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.work{grid-template-columns:1fr}.work .thumb{height:200px}nav ul{gap:16px;font-size:14px}nav .wrap{flex-wrap:wrap;row-gap:6px}.flow{flex-direction:column}.flow .arrow{transform:rotate(90deg)}.loop{display:block !important;border:none !important;height:auto !important;margin:10px 0 0 !important;text-align:center}.hero .btn{margin:0 8px 10px 0 !important}.loop::before{display:none}.loop span{position:static !important;transform:none !important;padding:0 !important;background:none !important;display:inline-block}.loop span::before{content:"\21BA  "}.mobile-note{display:block !important}.lead{flex-direction:column;align-items:flex-start}.lead b{font-size:36px;white-space:normal}}
+.loop{position:relative;height:30px;margin:0 7% 0 7%;border:2px solid var(--blue);border-top:none;border-radius:0 0 14px 14px}.loop::before{content:"";position:absolute;left:-7px;top:-2px;border:6px solid transparent;border-bottom:9px solid var(--blue);border-top:none}.loop span{position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);background:#F6F7FB;padding:0 10px;font-size:13px;font-weight:600;color:var(--blue);white-space:nowrap}@media(max-width:820px){.loop{display:none}}
+.mobile-note{display:none;font-size:13px;color:var(--sub);margin:14px 0 0}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap"><span class="name">Kay Maung</span>
+<ul><li><a href="#about">About</a></li><li><a href="#work">Strategy</a></li><li><a href="#production">Production</a></li><li><a href="#contact">Contact</a></li></ul></div></nav>
+
+<div class="wrap">
+<header class="hero">
+  <div>
+    <p class="kicker">Portfolio 2026</p>
+    <h1>Kay Maung</h1>
+    <p class="role">Marketing <span class="sel">strategy and operations</span> lead</p>
+    <p style="font-size:18px;max-width:560px;margin:0 0 28px">Based in Da Nang and working remotely, I lead the Lifelong Learning Singapore account at My Secret Hacks, and I also produce films and campaigns, with clients including the Singapore Tourism Board, Facebook and GIZ.</p>
+    <a class="btn" href="#work">See the work</a><a class="btn ghost" href="mailto:kaymar.maung@gmail.com">kaymar.maung@gmail.com</a><a class="btn ghost" href="https://www.linkedin.com/in/kay-maung-2b09b4108/" target="_blank" rel="noopener">LinkedIn</a>
+    <p class="mobile-note">Best viewed on a computer.</p>
+  </div>
+  <div class="frame" style="height:440px"><i class="h1"></i><i class="h2"></i><img src="images/kay.jpg" alt="Kay Maung"></div>
+</header>
+</div>
+
+<section id="about"><div class="wrap">
+  <div class="about">
+    <div><p class="kicker">About</p><h2 style="font-size:38px;line-height:1.15">What I do</h2></div>
+    <div><p>I lead the Lifelong Learning Singapore account at My Secret Hacks, part of Singapore&#8217;s national SkillsFuture movement, helping people keep up with a job market that AI is changing fast. I took it over from the previous team and changed how we work, report and spend, leading a remote team of planners, producers, designers and editors across countries. I build the strategy from data, looking at what&#8217;s trending and what has already worked for this account, from topics and formats down to captions, and the account has already outgrown the whole previous contract year in both views and clicks. I also led the account&#8217;s campaign for <a href="https://skillsfuturefestival.sg/" target="_blank" rel="noopener" style="font-weight:600">SkillsFuture Festival 2026: Career Health in the Age of AI</a>. I also produce films, commercials and campaigns, starting with Sunshower Productions, the company I founded in Yangon, for clients including the Singapore Tourism Board, Facebook and GIZ. In New York, I ran front of house operations at a busy restaurant by the Brooklyn Bridge.</p>
+    <div class="tags" style="margin-top:22px"><span class="tag">Strategy</span><span class="tag">Operations</span><span class="tag">Team leadership</span><span class="tag">Stakeholder management</span><span class="tag">Paid media</span><span class="tag">Reporting and analytics</span><span class="tag">Creative direction</span><span class="tag">AI workflows</span><span class="tag">Production</span></div><p class="hint" style="margin-top:18px;font-size:14.5px"><b style="color:var(--ink)">Tools:</b> Meta Business Suite and Ads Manager · TikTok Ads Manager · LinkedIn Campaign Manager · Google Analytics 4 · Mailchimp · Notion · Google Workspace · Bitly · Canva · Claude · ChatGPT · Higgsfield · HeyGen · Final Cut Pro · Adobe Photoshop, Illustrator and Lightroom</p><p class="hint" style="margin-top:8px;font-size:14.5px"><b style="color:var(--ink)">Education:</b> B.A. Law and Development Studies, SOAS University of London · M.A. Media and Communications, The New School, New York</p></div>
+  </div>
+  <div style="margin-top:60px">
+    <p class="label">Selected results</p>
+    <div class="stats" style="grid-template-columns:repeat(4,1fr)">
+      <div class="stat" data-how="249,009 link clicks from April to October 2026, compared with 110,407 across the previous contract year, May 2025 to March 2026."><b>2.3x</b><span>the link clicks of the whole previous contract year across Instagram, TikTok, Facebook and LinkedIn, in under a year</span></div>
+      <div class="stat" data-how="Average monthly organic views on Facebook (+94%) and organic impressions on LinkedIn (+99%), December 2025 to March 2026 compared with May to October 2026."><b>2x</b><span>organic reach on Facebook and LinkedIn after I took over</span></div>
+      <div class="stat" data-how="SkillsFuture Festival 2026 delivered every planned content area using just over half of the planned media budget."><b>Half the budget</b><span>to deliver a full national festival campaign, with every planned piece of content delivered and 2.2 times the clicks per dollar of last year&#8217;s festival</span></div>
+      <div class="stat" data-how="Follower growth from 1 April to early November 2026: TikTok +59.5% and LinkedIn +22.7%, both already past their targets for the full contract term."><b>Targets passed</b><span>for follower growth on TikTok and LinkedIn, well ahead of the end of the contract term</span></div>
+    </div>
+    <p class="hint">Hover over a result to see how it was measured.</p>
+  </div>
+</div></section>
+
+<section id="work" style="padding-top:40px"><div class="wrap">
+  <p class="kicker">Part 1</p>
+  <h2 style="font-size:44px;margin-bottom:8px">Marketing strategy and <span class="sel">operations</span></h2>
+  <p style="font-size:18px;color:var(--sub);margin:0 0 34px">Three case studies from the Lifelong Learning Singapore account at My Secret Hacks, 2026</p>
+  <div class="works">
+    <a class="work" href="#c1"><span class="num">01</span><div><h3>Taking over and rebuilding the account</h3><p>Took over a government account from the previous team and reshaped how the team, workflows and reporting run.</p><div class="tags"><span class="tag">Operations</span><span class="tag">Stakeholder management</span><span class="tag">Reporting</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img src="images/tracker_usage.jpg" alt="Content quota tracker"></div></a>
+    <a class="work" href="#c2"><span class="num">02</span><div><h3>SkillsFuture Festival 2026</h3><p>Nine weeks that beat a whole year of clicks, on about half the budget.</p><div class="tags"><span class="tag">Campaign</span><span class="tag">Paid media</span><span class="tag">Creative direction</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img src="images/after_sff_sep.jpg" alt="SkillsFuture Festival posts"></div></a>
+    <a class="work" href="#c4"><span class="num">03</span><div><h3>AI in practice, with people in charge</h3><p>Making AI useful to a creative team without lowering the standard of the work.</p><div class="tags"><span class="tag">AI workflows</span><span class="tag">Team training</span><span class="tag">Process</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img src="images/ai_thumb.jpg" alt="AI mock next to the final design"></div></a>
+  </div>
+</div></section>
+
+<section class="case" id="c1"><div class="wrap">
+  <p class="kicker">Case study 01 · Account leadership</p>
+  <h2>Taking over and <span class="sel">rebuilding</span> the account</h2>
+  <div class="lead"><b>Ahead of target</b><span>Halfway through the contract, the account had already outgrown the whole previous contract year in views and clicks, and already hit several of its KPIs for the full term, including the follower targets on TikTok and LinkedIn and the engagement targets on Instagram and LinkedIn</span></div>
+  <div class="two block">
+    <div><p class="label">Context</p><p style="margin:0">I took the account over a month into a new contract term, when the previous team left. The contract covers social media, email and strategy, and I was asked to reorganise the team and restructure how the account ran.</p></div>
+    <div><p class="label">My role</p><p style="margin:0">I lead the account and the client relationship, report to the CEO, and direct a remote team across countries, including the on site team in Singapore.</p></div>
+  </div>
+  <div class="two wide block">
+    <div><p class="label">What I did</p><ol class="steps">
+      <li>Set new standards for how the team works, from SOPs and briefs to how work is reviewed, so a remote team across countries delivers to the same bar, including a shared, responsible approach to AI (see case study 03)</li>
+      <li>Cut review and revision rounds on eDMs by drafting copy and mock designs with AI, built on data about what has worked before, so the client picks a direction before a designer starts</li>
+      <li>Built a shared content and budget dashboard, a web app made with AI assisted development, that replaced scattered spreadsheets and docs, so the client and our team see proposed content, quota and budget in one place</li>
+      <li>Moved the monthly media report onto an AI assisted workflow, so the team spends less time compiling data and more time on what worked, what didn&#8217;t and what to change in content, budget and A/B tests</li>
+      <li>Planned and rolled out two big changes for the client across social and email, on a set timeline: Skills and Training Advisory becoming Careers &amp; Skills Advisory, with services expanded from course advice to career exploration, resume guidance and job search help, and the launch of Connect by SWDA, a new careers and skills centre inside the LLSG building, timed around construction, the Prime Minister&#8217;s opening, the festival and SWDA&#8217;s own announcements</li>
+    </ol></div>
+    <div style="display:flex;flex-direction:column;gap:18px"><div class="frame zoom"><i class="h1"></i><i class="h2"></i><img src="images/tracker_usage.jpg" alt="Tracker: monthly content slots used by pillar" style="height:auto"></div><div class="frame zoom"><i class="h1"></i><i class="h2"></i><img src="images/tracker_calendar.jpg" alt="Tracker: shared content calendar" style="height:auto"></div><p class="cap">The shared dashboard I built: content slots by pillar and month, and the calendar the client and our team work from. Click to enlarge.</p></div>
+  </div>
+  <div class="two wide block" style="margin-top:10px"><div>
+      <div class="switch"><button class="on" data-b="images/before_april.jpg" data-a="images/after_regular_aug.jpg" data-lb="Mar to Apr 2026" data-la="Aug 2026">Regular content</button><button data-b="images/before_sff2025.jpg" data-a="images/after_sff_sep.jpg" data-lb="Festival, Jul 2025" data-la="Festival, Sep to Oct 2026">Festival</button></div>
+      <div style="display:flex;justify-content:space-between;max-width:460px;margin-bottom:10px;font-size:13px;font-weight:700"><span style="color:var(--sub)">Before · <em id="lb">Mar to Apr 2026</em></span><span style="color:var(--blue)">After · <em id="la">Aug 2026</em></span></div>
+      <div class="ba frame" id="ba"><i class="h1"></i><i class="h2"></i>
+        <img class="before" src="images/before_april.jpg" alt="Before">
+        <img class="after" src="images/after_regular_aug.jpg" alt="After">
+        <div class="bar"></div><input type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+      </div>
+      <p class="cap">Drag across the grid to compare.</p>
+    </div>
+    <div><p class="label">What changed creatively</p><ol class="steps">
+        <li>Gave the feed a cleaner, more consistent, higher quality look built around the brand colours, so every post reads as LLSG at a glance</li>
+        <li>Made a government account feel relatable: speaking to people the way they actually talk, joining the trends they already follow, and picking topics they care about, like keeping your human edge as AI changes work. I kept testing new formats, methods and tools, from motion graphics to paired video and carousel posts, and built on whatever people listened to and responded to</li>
+        <li>Put the people behind the organisation on screen, like its careers and skills advisors, and posts fronted by staff reached 21% to 43% more people than other posts</li>
+      </ol></div>
+  </div>
+  <p class="label">Growth this contract term</p>
+  <div class="stats">
+    <div class="stat" data-how="8.9M views and impressions in seven months, compared with 7.5M over the previous eleven months."><b>1.9x</b><span>views per month, compared with the previous contract year</span></div>
+    <div class="stat" data-how="Average cost per link click, $0.33 in the first quarter to $0.09 in October."><b>3.7x</b><span>more link clicks for every dollar spent by October, compared with the first quarter</span></div>
+    <div class="stat" data-how="Average monthly organic views (Facebook) and impressions (LinkedIn), December 2025 to March 2026 compared with May to October 2026."><b>2x</b><span>organic reach a month on Facebook (+94%) and LinkedIn (+99%)</span></div>
+    <div class="stat" data-how="Followers from 1 April to early November 2026."><b>+59.5%</b><span>TikTok followers this term, full term target already passed</span></div>
+    <div class="stat" data-how="Followers from 1 April to early November 2026."><b>+22.7%</b><span>LinkedIn followers this term, full term target already passed</span></div>
+    <div class="stat"><b>Every platform</b><span>set a new record low cost per click in the last two months</span></div>
+  </div>
+  
+</div></section>
+
+<section class="case" id="c2"><div class="wrap">
+  <p class="kicker">Case study 02 · Campaign</p>
+  <h2>SkillsFuture Festival 2026, on <span class="sel">half the budget</span></h2>
+  <div class="lead"><b>9 weeks</b><span>drove more clicks to the festival site than the account drew in the whole previous contract year, 2025 festival included, on just over half the planned budget</span></div>
+  <div class="two block">
+    <div><p class="label">Brief</p><p style="margin:0">A nine week publicity campaign for SkillsFuture Festival 2026: Career Health in the Age of AI, the annual SkillsFuture Festival, aimed largely at mid career Singaporeans. The festival opened with the Prime Minister launching Connect by SWDA, a new careers and skills centre, which the campaign also had to introduce to the public.</p></div>
+    <div><p class="label">My role</p><p style="margin:0">I led the campaign strategy, creative direction and paid media, with the team at its largest across countries and on site in Singapore.</p></div>
+  </div>
+  <div class="block"><p class="label">One key visual, many pieces</p><div style="display:grid;grid-template-columns:1.1fr 1fr 1fr 0.8fr;gap:18px;align-items:end"><figure style="margin:0"><div class="frame zoom" style="aspect-ratio:942/1400"><i class="h1"></i><i class="h2"></i><img src="images/kv.jpg" alt="The client&#8217;s key visual"></div><figcaption class="cap">The client&#8217;s key visual</figcaption></figure><figure style="margin:0"><div class="frame zoom" style="aspect-ratio:1080/1350"><i class="h1"></i><i class="h2"></i><img src="images/sff_map.jpg" alt="Roadshow map post"></div><figcaption class="cap">Roadshow map post</figcaption></figure><figure style="margin:0"><div class="frame zoom" style="aspect-ratio:1080/1350"><i class="h1"></i><i class="h2"></i><img src="images/sff_jessica.jpg" alt="Staff spotlight series"></div><figcaption class="cap">Staff spotlight series</figcaption></figure><figure style="margin:0"><div class="frame zoom" style="aspect-ratio:9/16"><i class="h1"></i><i class="h2"></i><img src="images/sff_recap.jpg" alt="Recap video"></div><figcaption class="cap">Recap video</figcaption></figure></div></div>
+  <div class="block"><div class="frame zoom"><i class="h1"></i><i class="h2"></i><img src="images/sff_timeline.jpg" alt="Festival timeline of roadshows and boosts against daily clicks and views" style="height:auto"></div><p class="cap">From my campaign report: twelve paid boosts timed around ten roadshows over two months, set against daily clicks and views. Click to enlarge.</p></div>
+  <div class="block"><p class="label">What I did</p><ol class="steps">
+    <li>Turned the client&#8217;s single key visual into a full campaign look across four platforms and email</li>
+    <li>Planned the content around the festival calendar: launch, ten district roadshows and the opening of Connect by SWDA, delivering every planned content area and expanding several</li>
+    <li>Ran a festival content calendar of around 50 posts over nine weeks, posting almost every day in the busiest weeks: teasers and countdowns before launch, highlights from each roadshow within a day or two, and a round up of what&#8217;s on every Monday</li>
+    <li>Built recurring series, including staff spotlights and weekly roundups, paired with matching video and carousels</li>
+    <li>Directed an on site team in Singapore covering the roadshows, while running the account remotely</li>
+    <li>Timed twelve paid boosts around the roadshows, tested by region and objective, and moved budget to what worked week by week</li>
+    <li>Wrote the festival eDMs, with copy and layout decisions based on what had performed before</li>
+  </ol></div>
+  <p class="label">Results</p>
+  <div class="stats">
+    <div class="stat" data-how="Cost per click on Facebook, Instagram and LinkedIn, compared with the 2025 festival."><b>2.2x</b><span>the clicks for every dollar spent, compared with the 2025 festival</span></div>
+    <div class="stat"><b>Half the budget</b><span>the campaign used just over half of what was planned</span></div>
+    <div class="stat" data-how="Lowest cost per link click the account has recorded: LinkedIn in September, Facebook, Instagram and TikTok in October, all during the festival campaign period."><b>Record lows</b><span>in cost per click on all four platforms, set during the festival</span></div>
+  </div>
+</div></section>
+
+<section class="case" id="c4"><div class="wrap">
+  <p class="kicker">Case study 03 · Ways of working</p>
+  <h2>AI in practice, <span class="sel">people in charge</span></h2>
+  <p style="font-size:18px;max-width:760px;margin:24px 0 36px">The agency&#8217;s leadership wanted AI built into how the team works, and I led that change on this account. LLSG&#8217;s work is helping Singaporeans adapt to a job market that AI is changing, so the way we use AI ourselves has to be responsible and set an example.</p>
+  <p class="label">Why it matters</p>
+  <p style="font-size:18px;max-width:760px;margin:0 0 36px">LLSG plays a key part in AI upskilling for Singapore&#8217;s workforce, but the people it most needs to reach, mid careerists aged 30 to 50, are not the easiest audience. Many find AI intimidating or don&#8217;t know where to start, and some worry it will take their jobs. Coming from a government backed account, how we talk about AI carries weight, so the approach has to be gentle, accurate and never dismissive of those fears. With no set playbook for this, the team has to understand AI well enough to explain it simply, and use it the way we tell others to, with real people only and never AI generated images of people. We hold ourselves to a high standard on keeping human judgement and creativity at the centre of everything we make.</p>
+  <div class="block"><p class="label">How a piece of work moves now</p>
+    <div class="flow">
+      <div class="node">What has worked<small>Past client comments, our best posts and eDMs, and the current feed</small></div><span class="arrow">&#8594;</span>
+      <div class="node">AI drafts and mocks<small>Copy plus two or three design directions, so the client sees options early</small></div><span class="arrow">&#8594;</span>
+      <div class="node">Client picks<small>Comments on copy and design together, before a designer starts</small></div><span class="arrow">&#8594;</span>
+      <div class="node">Designer builds<small>Designers lead the final work, with real people only</small></div><span class="arrow">&#8594;</span>
+      <div class="node me">My review<small>Nothing goes out without human judgement</small></div><span class="arrow">&#8594;</span>
+      <div class="node">Results<small>What performed goes back into the next draft</small></div>
+    </div>
+    <div class="loop"><span>Results feed into the next piece</span></div>
+    <p class="hint">Hover over or tap each step.</p>
+  </div>
+  <p class="label">What changed</p>
+  <div class="stats block">
+    <div class="stat" data-how="eDMs: copy used to take two to three rounds and design about the same. Copy and mock now go to the client together, with about two rounds of feedback in total, sometimes three."><b>About half</b><span>the feedback rounds on eDMs, now that copy and mock go to the client together</span></div>
+    <div class="stat" data-how="Social posts: the client comments on copy and two or three mock directions at once, so the designer&#8217;s version usually needs one round of revision."><b>1 round</b><span>of revisions on most social posts once the designer builds the final</span></div>
+    <div class="stat"><b>Trusted to lead</b><span>faster approvals and less oversight needed, to the point where I make the account&#8217;s executive decisions</span></div>
+  </div>
+  <div class="block">
+    <div><p class="label">What I set up</p><ol class="steps">
+      <li>Rolled AI in gradually, after learning how the account worked: team wide training for producers, a written SOP for every new process, and one on ones with each lead, such as agreeing with the design lead where AI fits and where it doesn&#8217;t</li>
+      <li>Trained producers to prompt like creative directors, with references and a clear tone, so the work stays theirs and never looks like generic AI output. That answered the team&#8217;s worry that AI would take over their creative role</li>
+      <li>Connected our AI tools to what we&#8217;ve learned: the files where the client leaves comments, our best performing posts and eDMs, and the current feed, so drafts build on what worked and stay on brand</li>
+      <li>Set clear rules: real people only, never AI generated images of people; and every AI draft fact checked and edited by a person, with the telltale habits of AI writing stripped out</li>
+      <li>Got the team to set up their own AI accounts to the same standard, with written instructions, shared skill files and organised project folders, so every producer starts from the same rules</li>
+    </ol></div></div>
+  <div class="block">
+    <div><p class="label">Tools</p><div class="tags"><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">Higgsfield</span><span class="tag">Canva AI</span></div></div>
+    
+  </div>
+  <p class="label">From mock to final</p>
+  <div class="two block" style="align-items:start">
+      <div class="frame"><i class="h1"></i><i class="h2"></i>
+      <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:10px;align-items:center;padding:14px 14px 0">
+        <span></span><p class="label" style="margin:0;text-align:center">AI mock</p><p class="label" style="margin:0;text-align:center">Final design</p>
+        <span class="label" style="margin:0;writing-mode:vertical-rl;transform:rotate(180deg)">Cover</span><img class="zoom" src="images/ai_mock1.jpg" alt="AI drafted mock of the cover slide" style="width:100%;border-radius:6px"><img class="zoom" src="images/ai_final1.jpg" alt="Final cover slide" style="width:100%;border-radius:6px">
+        <span class="label" style="margin:0;writing-mode:vertical-rl;transform:rotate(180deg)">Inside</span><img class="zoom" src="images/ai_mock3.jpg" alt="AI drafted mock of the comparison slide" style="width:100%;border-radius:6px"><img class="zoom" src="images/ai_final3.jpg" alt="Final comparison slide" style="width:100%;border-radius:6px">
+      </div>
+      <p class="hint" style="margin:10px 14px 14px">A carousel promoting an agentic workflow workshop. The client approved the copy at mock stage, so the final design needed one round of feedback.</p>
+    </div>
+    <div class="frame"><i class="h1"></i><i class="h2"></i>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px 14px 0">
+        <p class="label" style="margin:0;text-align:center">AI mock</p><p class="label" style="margin:0;text-align:center">Final eDM</p>
+        <img class="zoom" src="images/edm_mock.jpg" alt="AI drafted mock of the festival wrap up eDM" style="width:100%;border-radius:6px"><img class="zoom" src="images/edm_final.jpg" alt="Final festival wrap up eDM" style="width:100%;border-radius:6px">
+      </div>
+      <p class="hint" style="margin:10px 14px 14px">The festival wrap up eDM. Copy and layout went to the client as one mock, with placeholders for figures still to come.</p>
+    </div>
+      </div>
+
+</div></section>
+
+<section class="case" id="production"><div class="wrap">
+  <p class="kicker">Part 2 · Creative production, 2019 to 2022</p>
+  <h2>Film and video <span class="sel">production</span></h2>
+  <p style="font-size:18px;max-width:760px;margin:24px 0 20px">Films, commercials and campaigns for brands, agencies and international organisations, mostly through Sunshower Productions, the company I founded in Yangon. Producing taught me the core of what I do: writing scripts, setting the creative direction, managing budgets and clients, and working with the crew on both the creative and the logistics to hit every deadline.</p>
+  <p class="label" style="margin-top:6px">Produced for</p>
+  <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:34px">
+    <div style="background:#fff;border:1px solid var(--line);border-radius:12px;height:84px;padding:14px 22px;display:flex;align-items:center"><img src="images/logo_stb.png" alt="Singapore Tourism Board, Passion Made Possible" style="height:56px"></div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:12px;height:84px;padding:14px 22px;display:flex;align-items:center"><img src="images/logo_facebook.png" alt="Facebook" style="height:52px"></div>
+    <div style="background:#fff;border:1px solid var(--line);border-radius:12px;height:84px;padding:14px 22px;display:flex;align-items:center"><img src="images/logo_giz.png" alt="GIZ" style="height:42px"></div>
+  </div>
+  <a class="btn reel" href="https://vimeo.com/933462004" data-t="0" style="margin-bottom:40px">&#9654; Play the demo reel</a>
+  <div class="works" style="margin-top:40px"><a class="work" href="https://www.facebook.com/share/v/1ABNL8mAUD/" target="_blank" rel="noopener"><span class="num">01</span><div><h3>My Parent&#8217;s Passion</h3><p>2020 · Tourism campaign · <b style="color:var(--ink)">Producer</b><br>Produced for: Singapore Tourism Board · Agency: ERA Myanmar<br>The campaign won Southeast Asia PR Campaign of the Year at the PR Asia Awards 2020 and Best Government Agency Campaign at SABRE APAC 2020, with 4M video views.</p><div class="tags"><span class="tag">Sunshower Productions</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img src="images/stb.jpg" alt="My Parent&#8217;s Passion"></div></a><div class="work" style="cursor:default"><span class="num">02</span><div><h3>Tea Talks</h3><p>2020 · Digital literacy quiz show · <b style="color:var(--ink)">Producer</b><br>Produced for: Facebook · Agency: Love Frankie</p><div class="tags"><span class="tag">Freelance, Loka Production</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img style="object-fit:contain;background:#fff" src="images/tea_talks.jpg" alt="Tea Talks"></div></div><div class="work" style="cursor:default"><span class="num">03</span><div><h3>Save For Future</h3><p>2019 · World Savings Day interactive campaign · <b style="color:var(--ink)">Producer</b><br>Produced for: GIZ · Agency: Duwun Media</p><div class="tags"><span class="tag">Freelance, AddMe Production</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img style="object-fit:contain;background:#fff" src="images/save_for_future.jpg" alt="Save For Future"></div></div><a class="work" href="https://www.youtube.com/watch?v=Py9YwMiVHMA" target="_blank" rel="noopener"><span class="num">04</span><div><h3>Return to Sender</h3><p>2020 · Short film · <b style="color:var(--ink)">Executive producer and producer</b><br>Audience Favourite at Wathann Film Festival; screened at Queer East (London), Kashish (Mumbai) and SEAQCF</p><span style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:4px 0 14px"><img src="images/fest_queer_east.png" alt="Queer East Film Festival" style="height:38px;width:auto"><img src="images/fest_burma_spring.png" alt="Burma Spring Benefit Film Festival" style="height:38px;width:auto"><img src="images/fest_asean_sogie.png" alt="ASEAN SOGIE Caucus" style="height:38px;width:auto"><img src="images/fest_kashish.png" alt="KASHISH Mumbai International Queer Film Festival 2020" style="height:38px;width:auto"><img src="images/fest_wathann.png" alt="Wathann Film Festival" style="height:38px;width:auto"></span><div class="tags"><span class="tag">Sunshower Productions</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img src="images/return_to_sender.jpg" alt="Return to Sender"></div></a><a class="work reel" href="https://vimeo.com/933462004#t=1m26s" data-t="86"><span class="num">05</span><div><h3>Chit Par Jewelry: two ad films</h3><p>2020 · Ad spot and digital ad · <b style="color:var(--ink)">Producer and director</b><br>Produced for: Chit Par Jewelry · Agency: Poke. Studio</p><div class="tags"><span class="tag">Sunshower Productions</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img src="images/girls_night_out.jpg" alt="Chit Par Jewelry: two ad films"></div></a><a class="work" href="https://www.instagram.com/somsara.art/" target="_blank" rel="noopener"><span class="num">06</span><div><h3>Somsara</h3><p>2022 · Digital marketing campaign · <b style="color:var(--ink)">Creative producer</b><br>Produced for: Somsara Art</p><div class="tags"><span class="tag">Sunshower Productions, freelance</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img style="object-fit:contain;background:#fff" src="images/somsara.jpg" alt="Somsara"></div></a><a class="work reel" href="https://vimeo.com/933462004" data-t="0"><span class="num">07</span><div><h3>Synthesis of Dreams</h3><p>2019 · Music video for Gabriel Phway · <b style="color:var(--ink)">Producer and director</b></p><div class="tags"><span class="tag">Sunshower Productions</span></div></div><div class="frame thumb"><i class="h1"></i><i class="h2"></i><img src="images/synthesis.jpg" alt="Synthesis of Dreams"></div></a></div>
+  <p class="hint">Click a project to watch it. The reel plays here; the rest open in a new tab.</p>
+</div></section>
+
+<footer id="contact"><div class="wrap">
+  <p class="kicker">Contact</p>
+  <h2>Let’s <span class="sel">talk</span></h2>
+  <a class="btn" href="mailto:kaymar.maung@gmail.com">kaymar.maung@gmail.com</a><a class="btn ghost" href="https://www.linkedin.com/in/kay-maung-2b09b4108/" target="_blank" rel="noopener">LinkedIn</a>
+  <p class="note">Figures come from platform analytics and the account’s official reports.</p>
+</div></footer>
+
+<div class="lb" id="lb-box"><img alt=""></div>
+<script>
+const ba=document.getElementById('ba'),r=ba.querySelector('input'),after=ba.querySelector('.after'),bar=ba.querySelector('.bar');
+r.addEventListener('input',()=>{after.style.clipPath=`inset(0 0 0 ${r.value}%)`;bar.style.left=r.value+'%'});
+document.querySelectorAll('.switch button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.switch button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  ba.querySelector('.before').src=b.dataset.b;after.src=b.dataset.a;
+  document.getElementById('lb').textContent=b.dataset.lb;document.getElementById('la').textContent=b.dataset.la;}));
+const box=document.getElementById('lb-box');
+document.querySelectorAll('.zoom img').forEach(i=>i.parentElement.addEventListener('click',()=>{box.querySelector('img').src=i.src;box.classList.add('on')}));
+box.addEventListener('click',()=>box.classList.remove('on'));
+const vb=document.createElement('div');vb.className='vb';vb.innerHTML='<div class="in"><button class="x" aria-label="Close">&times;</button><iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div>';document.body.appendChild(vb);
+const vf=vb.querySelector('iframe');
+document.querySelectorAll('.reel').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();vf.src='https://player.vimeo.com/video/933462004?autoplay=1#t='+(a.dataset.t||0)+'s';vb.classList.add('on')}));
+vb.addEventListener('click',e=>{if(e.target===vb||e.target.classList.contains('x')){vb.classList.remove('on');vf.src=''}});
+</script>
+</body>
+</html>
